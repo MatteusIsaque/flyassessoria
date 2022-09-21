@@ -9,7 +9,7 @@ interface TitleType extends TextProps {
 export default function Title({ children, ...rest }: TitleType) {
 
   return (
-    <Text mt='-4' fontSize='6xl' lineHeight='none' fontWeight='bold' {...rest}>
+    <Text mt='-4' fontSize={{ base: '4xl', lg: '4xl', xl: '6xl' }} lineHeight='none' fontWeight='bold' {...rest}>
       {children}
     </Text>
   )

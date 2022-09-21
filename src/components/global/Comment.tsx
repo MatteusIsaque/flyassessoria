@@ -13,12 +13,12 @@ interface commentProps {
 export default function Comment({ ImageUser, Commentary, Name, Profession }: commentProps) {
 
   return (
-    <Flex flexDirection='column' alignItems='center' justifyContent='space-between' position='relative' flex='1' borderWidth='1px' h='600px' boxShadow='lg' p='10%'>
+    <Flex flexDirection='column' alignItems='center' justifyContent='space-between' position='relative' flex='1' borderWidth='1px' h={{base:'450px', md:'600px'}} boxShadow='lg' p='10%'>
       <Icon position='absolute' as={FaQuoteRight} fontSize='4xl' top='-18px' left='40px' />
 
       <Box />
 
-      <Text textAlign='center' fontSize='3xl' fontWeight='semibold'>
+      <Text textAlign='center' fontSize={{base:'2xl', xl: '3xl' }} fontWeight='semibold'>
         {Commentary}
       </Text>
 
