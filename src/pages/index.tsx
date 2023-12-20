@@ -91,6 +91,7 @@ export default function Index() {
 
         <Flex maxW='1400px' mx='10%' py='10%' flexDirection={{ base: 'column', md: 'row' }}>
           <Box flex='1' mr='5%'>
+            
             <Title as='h2' mb='6'>Fale conosco por email</Title>
             {/* <Text>A Fly Assessoria acredita que todos têm o direito à casa própria, por isso a Fly Assessoria está empenhada em possibilitar que todas as famílias, independentemente da renda, tenha o financiamento aprovado.</Text><br /> */}
 
