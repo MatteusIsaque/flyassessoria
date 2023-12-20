@@ -43,10 +43,10 @@ export default function Index() {
       </Head>
       <main>
 
-        <Flex h='100%' flexDirection={{ base: 'column', lg: 'row' }} mt={{ base: '25px', sm:'50', md: '0px' }} alignItems='center' maxH='942px' py={{ base: '10%', lg: '0px' }} mb='-1' justifyContent='space-between'>
+        <Flex h='100%' flexDirection={{ base: 'column', lg: 'row' }} mt={{ base: '25px', sm: '50', md: '0px' }} alignItems='center' maxH='942px' py={{ base: '10%', lg: '0px' }} mb='-1' justifyContent='space-between'>
           <Box flex='1' maxW='1400px' ml={{ base: '0px', md: '10%' }} textAlign={{ base: 'center', md: 'start' }}>
-            <Fade  in={time} animate={{ opacity: 1 }}>
-              <Span mx={{base:'5', sm:'10'}} fontSize={{base: '2xl', md: '3xl'}}>Conheça a Fly Assessoria</Span>
+            <Fade in={time} animate={{ opacity: 1 }}>
+              <Span mx={{ base: '5', sm: '10' }} fontSize={{ base: '2xl', md: '3xl' }}>Conheça a Fly Assessoria</Span>
               <Title mx='10' mt='1' as='h1' color='blue.800'>Conquiste sua casa própria, sem burocrácia e dor de cabeça</Title>
               <ButtonCompont Text='FALAR PELO WHATSAPP' />
             </Fade>
@@ -60,13 +60,11 @@ export default function Index() {
 
         <Divider />
 
-        <Grid gridTemplateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }} mb={{ base: '140px' }} rowGap={{ base: '5%', md: '0px' }} columnGap='5%' maxW='1400px' mx='10%' py='10%'>
-          <Comment Commentary='Que a Fly cresça ainda mais, podendo ajudar mulheres que assim como eu, lutam para conquistar o sonho do seu imóvel.' ImageUser={Elissandra} Name='Elissandra' Profession='Advogada' />
-          <Comment Commentary='...os profissionais que fizeram toda a diferença no processo... eles realmente sabem assessorar o cliente!' ImageUser={Kelly} Name='Kelly' Profession='Habitacional' />
-          <Comment Commentary='...eles conseguirem aprovação do meu crédito, só tenho a agradecer e desejar sucesso à todos da Fly Assessoria.' ImageUser={Rogério} Name='Rogério' Profession='Vendedor' />
-        </Grid>
-
-        <Divider />
+        <Flex textAlign="center" flexDir="column" px="10%" justifyItems="center" py="28">
+          <Text as="h2" mb={2} fontWeight={700} fontSize={32}>A FLY ASSESSORIA TE AJUDA A REALIZAR O SONHO DA CASA PRÓPRIA</Text>
+          <Text as="p">A Fly Assessoria acredita que todos têm o direito à casa própria, por isso a Fly Assessoria está empenhada em possibilitar que todas as famílias, independentemente da renda, tenha o financiamento aprovado.</Text>
+          <Text as="p">Basta ter um nome limpo e entrar em contato com um de nossos servidores e nós o ajudaremos ao durante o processo de aprovação.</Text>
+        </Flex>
 
         <Box bgColor='red.500' py='5%' textAlign='center'>
           <Span color='white' py='10%'>Veja como é simples a aprovação do seu crédito</Span>
@@ -83,10 +81,18 @@ export default function Index() {
 
         <Divider />
 
+        <Grid gridTemplateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }} mb={{ base: '0px' }} rowGap={{ base: '5%', md: '0px' }} columnGap='5%' maxW='1400px' mx='10%' py='10%'>
+          <Comment Commentary='Que a Fly cresça ainda mais, podendo ajudar mulheres que assim como eu, lutam para conquistar o sonho do seu imóvel.' ImageUser={Elissandra} Name='Elissandra' Profession='Advogada' />
+          <Comment Commentary='...os profissionais que fizeram toda a diferença no processo... eles realmente sabem assessorar o cliente!' ImageUser={Kelly} Name='Kelly' Profession='Habitacional' />
+          <Comment Commentary='...eles conseguirem aprovação do meu crédito, só tenho a agradecer e desejar sucesso à todos da Fly Assessoria.' ImageUser={Rogério} Name='Rogério' Profession='Vendedor' />
+        </Grid>
+
+        <Divider />
+
         <Flex maxW='1400px' mx='10%' py='10%' flexDirection={{ base: 'column', md: 'row' }}>
           <Box flex='1' mr='5%'>
             <Title as='h2' mb='6'>Fale conosco por email</Title>
-            <Text>A Fly Assessoria acredita que todos têm o direito à casa própria, por isso a Fly Assessoria está empenhada em possibilitar que todas as famílias, independentemente da renda, tenha o financiamento aprovado.</Text><br />
+            {/* <Text>A Fly Assessoria acredita que todos têm o direito à casa própria, por isso a Fly Assessoria está empenhada em possibilitar que todas as famílias, independentemente da renda, tenha o financiamento aprovado.</Text><br /> */}
 
             <Text>Basta ter um nome limpo e entrar em contato com um de nossos servidores e nós o ajudaremos ao durante o processo de aprovação.</Text>
           </Box>
@@ -94,7 +100,7 @@ export default function Index() {
           <FormControl mt={{ base: '20', md: '0px' }} as='form' onSubmit={handleForm} flex='1'>
             <VStack spacing={4}>
               <InputForm label='Nome' placeholder='Nome' required={true} />
-              <InputForm label='Email' placeholder='Email' required={true} />
+              {/* <InputForm label='Email' placeholder='Email' required={true} /> */}
               <InputForm label='Numero' placeholder='numero' required={true} />
               <FormControl>
                 <FormLabel textAlign='start'>Menssage</FormLabel>
