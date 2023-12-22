@@ -40,17 +40,22 @@ export default function Index() {
   async function handleForm(e: FormEvent) {
     e.preventDefault()
 
-    const a = await axios.post("https://main-form.herokuapp.com/form/send-form-campanha", {
-      emailTo: "matteus.isaque28@gmail.com",
-      // emailTo: "jcbbb86@gmail.com"
-      domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
-      title: "Campanha Isaques Estúdios",
-      name: name,
-      phone: number,
-      message: message
-    })
+    try {
+      await axios.post("https://main-form.herokuapp.com/form/send-form-campanha", {
+        emailTo: "matteus.isaque28@gmail.com",
+        // emailTo: "jcbbb86@gmail.com"
+        domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
+        title: "Campanha Isaques Estúdios",
+        name: name,
+        phone: number,
+        message: message
+      })
 
-    console.log(a)
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
 
