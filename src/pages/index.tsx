@@ -1,6 +1,6 @@
 import { Accordion, Box, Checkbox, Divider, Fade, Flex, FormControl, FormLabel, Grid, Stack, Text, Textarea, useBreakpointValue, useMediaQuery, VStack } from '@chakra-ui/react'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import ButtonCompont from '../components/global/Button'
 import Comment from '../components/global/Comment'
 import Span from '../components/global/Span'
@@ -20,9 +20,16 @@ import AnalyzeDocument from './../img/analisamos-documentos.jpg'
 import RoutingForApproval from './../img/encaminhamento-para-aprovação.jpg'
 import InputForm from '../components/form/Input'
 import Image from 'next/image'
+import axios from 'axios'
+import Link from 'next/link'
+
+import Wts from './../img/icons8-whatsapp-96.png'
 
 export default function Index() {
   const [time, setTime] = useState<boolean>()
+  const [name, setName] = useState("")
+  const [number, setNumber] = useState(0)
+  const [message, setMessage] = useState("")
 
   const [isLargerThan656] = useMediaQuery('(min-width:1280px)')
 
@@ -30,8 +37,20 @@ export default function Index() {
     setTimeout(() => { setTime(true) }, 1000)
   }, [])
 
-  function handleForm() {
-    console.log('enviou')
+  async function handleForm(e: FormEvent) {
+    e.preventDefault()
+
+    const a = await axios.post("https://main-form.herokuapp.com/form/send-form-campanha", {
+      emailTo: "matteus.isaque28@gmail.com",
+      // emailTo: "jcbbb86@gmail.com"
+      domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
+      title: "Campanha Isaques Estúdios",
+      name: name,
+      phone: number,
+      message: message
+    })
+
+    console.log(a)
   }
 
 
@@ -46,9 +65,11 @@ export default function Index() {
         <Flex h='100%' flexDirection={{ base: 'column', lg: 'row' }} mt={{ base: '25px', sm: '50', md: '0px' }} alignItems='center' maxH='942px' py={{ base: '10%', lg: '0px' }} mb='-1' justifyContent='space-between'>
           <Box flex='1' maxW='1400px' ml={{ base: '0px', md: '10%' }} textAlign={{ base: 'center', md: 'start' }}>
             <Fade in={time} animate={{ opacity: 1 }}>
-              <Span mx={{ base: '5', sm: '10' }} fontSize={{ base: '2xl', md: '3xl' }}>Conheça a Fly Assessoria</Span>
-              <Title mx='10' mt='1' as='h1' color='blue.800'>Conquiste sua casa própria, sem burocrácia e dor de cabeça</Title>
-              <ButtonCompont Text='FALAR PELO WHATSAPP' />
+              <Span fontSize={{ base: '2xl', md: '3xl' }}>Conheça a Fly Assessoria</Span>
+              <Title mt='1' as='h1' color='blue.800'>Conquiste sua casa própria, sem burocrácia e dor de cabeça</Title>
+              <Link href="https://wa.me/5511991151492?text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+aprova%C3%A7%C3%A3o+do+financiamento+im%C3%B3biliario.">
+                <ButtonCompont Text='FALAR PELO WHATSAPP' />
+              </Link>
             </Fade>
           </Box>
 
@@ -75,7 +96,9 @@ export default function Index() {
           </Grid>
 
           <Flex justifyContent='center'>
-            <ButtonCompont mx='10%' Text='FALE AGORA COM NOSSA EQUIPE' bgColor='blue.800' _hover={{ bgColor: 'blue.700' }} />
+            <Link href="https://wa.me/5511991151492?text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+aprova%C3%A7%C3%A3o+do+financiamento+im%C3%B3biliario.">
+              <ButtonCompont mx='10%' Text='FALE AGORA COM NOSSA EQUIPE' />
+            </Link>
           </Flex>
         </Box>
 
@@ -91,7 +114,7 @@ export default function Index() {
 
         <Flex maxW='1400px' mx='10%' py='10%' flexDirection={{ base: 'column', md: 'row' }}>
           <Box flex='1' mr='5%'>
-            
+
             <Title as='h2' mb='6'>Fale conosco por email</Title>
             {/* <Text>A Fly Assessoria acredita que todos têm o direito à casa própria, por isso a Fly Assessoria está empenhada em possibilitar que todas as famílias, independentemente da renda, tenha o financiamento aprovado.</Text><br /> */}
 
@@ -100,12 +123,12 @@ export default function Index() {
 
           <FormControl mt={{ base: '20', md: '0px' }} as='form' onSubmit={handleForm} flex='1'>
             <VStack spacing={4}>
-              <InputForm label='Nome' placeholder='Nome' required={true} />
+              <InputForm label='Nome' placeholder='Nome' required={true} onChange={(e) => { setName(e.target.value) }} />
               {/* <InputForm label='Email' placeholder='Email' required={true} /> */}
-              <InputForm label='Numero' placeholder='numero' required={true} />
+              <InputForm label='Numero' placeholder='numero' required={true} onChange={(e) => { setNumber(Number(e.target.value)) }} />
               <FormControl>
                 <FormLabel textAlign='start'>Menssage</FormLabel>
-                <Textarea placeholder='Fale conosco' />
+                <Textarea placeholder='Fale conosco' onChange={(e) => { setMessage(e.target.value) }} />
               </FormControl>
 
               <Stack>
@@ -129,6 +152,13 @@ export default function Index() {
                 Rápido, fácil e sem burocracia.'/>
             </Accordion>
           </Box>
+        </Box>
+
+        <Box cursor="pointer" position="fixed" bottom={4} right={4} w="80px" h="80px">
+          <Link href="https://wa.me/5511991151492?text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+aprova%C3%A7%C3%A3o+do+financiamento+im%C3%B3biliario.">
+
+            <Image src={Wts} alt="Whatsapp" />
+          </Link>
         </Box>
       </main>
     </>
