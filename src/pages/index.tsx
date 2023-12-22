@@ -33,6 +33,7 @@ export default function Index() {
 
   const [isLargerThan656] = useMediaQuery('(min-width:1280px)')
 
+  
   useEffect(() => {
     setTimeout(() => { setTime(true) }, 1000)
   }, [])
