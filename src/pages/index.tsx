@@ -118,7 +118,7 @@ export default function Index() {
 
         <Divider />
 
-        <Flex maxW='1400px' mx='10%' py='10%' flexDirection={{ base: 'column', md: 'row' }}>
+        <Flex maxW='1400px' mx='10%' py='10%' flexDirection={{ base: 'column', md: 'row' }} mt={{ base: "100px", md: "0px" }}>
           <Box flex='1' mr='5%'>
 
             <Title as='h2' mb='6'>Fale conosco por email</Title>
