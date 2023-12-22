@@ -33,7 +33,7 @@ export default function Index() {
 
   const [isLargerThan656] = useMediaQuery('(min-width:1280px)')
 
-  
+
   useEffect(() => {
     setTimeout(() => { setTime(true) }, 1000)
   }, [])
@@ -43,7 +43,7 @@ export default function Index() {
 
     try {
       await axios.post("https://main-form.herokuapp.com/form/send-form-campanha", {
-        emailTo: "matteus.isaque28@gmail.com",
+        emailTo: "jcbbb86@gmail.com",
         // emailTo: "jcbbb86@gmail.com"
         domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
         title: "Campanha Isaques Estúdios",
