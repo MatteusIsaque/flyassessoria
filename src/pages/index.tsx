@@ -129,9 +129,9 @@ export default function Index() {
 
           <FormControl mt={{ base: '20', md: '0px' }} as='form' onSubmit={handleForm} flex='1'>
             <VStack spacing={4}>
-              <InputForm label='Nome' placeholder='Nome' required={true} onChange={(e) => { setName(e.target.value) }} />
+              <InputForm label='Nome' required placeholder='Nome' onChange={(e) => { setName(e.target.value) }} />
               {/* <InputForm label='Email' placeholder='Email' required={true} /> */}
-              <InputForm label='Numero' placeholder='numero' required={true} onChange={(e) => { setNumber(Number(e.target.value)) }} />
+              <InputForm label='Numero' required placeholder='numero' onChange={(e) => { setNumber(Number(e.target.value)) }} />
               <FormControl>
                 <FormLabel textAlign='start'>Menssage</FormLabel>
                 <Textarea placeholder='Fale conosco' onChange={(e) => { setMessage(e.target.value) }} />
