@@ -43,8 +43,7 @@ export default function Index() {
 
     try {
       await axios.post("https://main-form.herokuapp.com/form/send-form-campanha", {
-        // emailTo: "jcbbb86@gmail.com",
-        emailTo: "matteus.isaque28@gmail.com",
+        emailTo: "jcbbb86@gmail.com",
         domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
         title: "Campanha Isaques Estúdios",
         name: name,
