@@ -29,6 +29,7 @@ export default function Index() {
   const [time, setTime] = useState<boolean>()
   const [name, setName] = useState("")
   const [number, setNumber] = useState(0)
+  const [ddd, setDDD] = useState(0)
   const [message, setMessage] = useState("")
 
   const [isLargerThan656] = useMediaQuery('(min-width:1280px)')
@@ -47,7 +48,7 @@ export default function Index() {
         domain: "https://flyassessoria-k4ficdbmq-matteusisaque.vercel.app/",
         title: "Campanha Isaques Estúdios",
         name: name,
-        phone: number,
+        phone: `(${ddd}) ${number}`,
         message: message
       })
 
@@ -130,7 +131,10 @@ export default function Index() {
             <VStack spacing={4}>
               <InputForm label='Nome' required placeholder='Nome' onChange={(e) => { setName(e.target.value) }} />
               {/* <InputForm label='Email' placeholder='Email' required={true} /> */}
-              <InputForm label='Numero' required placeholder='numero' onChange={(e) => { setNumber(Number(e.target.value)) }} />
+              <Flex width="full" columnGap={4}>
+                <InputForm label='Numero' required placeholder='DDD' onChange={(e) => { setDDD(Number(e.target.value)) }} />
+                <InputForm label='Numero' required placeholder='numero' onChange={(e) => { setNumber(Number(e.target.value)) }} />
+              </Flex>
               <FormControl>
                 <FormLabel textAlign='start'>Menssage</FormLabel>
                 <Textarea placeholder='Fale conosco' onChange={(e) => { setMessage(e.target.value) }} />
