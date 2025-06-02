@@ -12,7 +12,7 @@ export default function ApprovalStage({ PathImage, TitleStage, DescriptionStage 
   return (
     <Flex flexDirection='column'>
       <Box>
-        <Image src={PathImage} />
+        <Image src={PathImage} alt="image" />
       </Box>
 
       <Flex flexDirection='column' textAlign='center' my='10'>
