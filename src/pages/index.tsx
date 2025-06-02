@@ -160,6 +160,8 @@ export default function Index() {
                 Pague somente após ter o crédito aprovado.
                 Rápido, fácil e sem burocracia.'/>
             </Accordion>
+            <img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2434814633543067&ev=PageView&noscript=1"
           </Box>
         </Box>
 
